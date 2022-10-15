@@ -1,0 +1,15 @@
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\bin\Debug\net6.0\Lab1.exe
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\bin\Debug\net6.0\Lab1.deps.json
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\bin\Debug\net6.0\Lab1.runtimeconfig.json
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\bin\Debug\net6.0\Lab1.dll
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\bin\Debug\net6.0\Lab1.pdb
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.csproj.AssemblyReference.cache
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.AssemblyInfoInputs.cache
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.AssemblyInfo.cs
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.csproj.CoreCompileInputs.cache
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.dll
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\refint\Lab1.dll
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.pdb
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\Lab1.genruntimeconfig.cache
+C:\Desktop\1 module 2022\C#\Lab1\Lab1\obj\Debug\net6.0\ref\Lab1.dll
