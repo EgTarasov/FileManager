@@ -11,7 +11,7 @@ public partial class FileManager
 
         try
         {
-            var path = $"{_curDir.FullName}/{name}";
+            var path = $"{_curDir.FullName}\\{name}";
             Directory.CreateDirectory(path);
             UserFolders.Add(path);
             Console.WriteLine("Folder has been successfully created");
@@ -24,25 +24,40 @@ public partial class FileManager
 
     private void DeleteFolder()
     {
-        Console.WriteLine("Choose Folder from the list(you must enter the full path as given");
+        if (UserFolders.Count == 0)
+        {
+            Console.WriteLine("You cant delete any folders");
+        }
+        Console.WriteLine("Choose Folder from the list(you must enter the whole name)");
+        var deleteFolders = new List<string>();
+        
         foreach (var folder in UserFolders)
         {
-            Console.WriteLine($"\t{folder}");
+            if (_curDir.FullName.Contains(folder) is false)
+            {
+                deleteFolders.Add(folder);
+                Console.WriteLine($"\t{folder}");
+            }
         }
         try
         {
-            var path = Console.ReadLine() ?? "";
-            if (path == $"{_curDir.FullName}" || UserFolders.Contains(path) is false)
+            if (deleteFolders.Count == 0)
             {
-                throw new ArgumentException("You are in this Folder");
+                throw new Exception("Empty list");
+            }
+            var path = Console.ReadLine() ?? "";
+            Console.WriteLine(_curDir.FullName + "\t" + path +  "\t" + path == _curDir.FullName);
+            if (path == _curDir.FullName || deleteFolders.Contains(path) is false)
+            {
+                throw new ArgumentException("Folder is not available");
             }
             Directory.Delete(path);
             UserFolders.Remove(path);
             Console.WriteLine("Folder has been successfully deleted");
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine("Cant delete folder");
+            Console.WriteLine("Cant delete any folder");
         }
     }
     

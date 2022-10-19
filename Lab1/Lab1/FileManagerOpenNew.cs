@@ -5,6 +5,10 @@ public partial class FileManager
     {
         if (_curDir.Parent is not null && _curDir.Parent.Name != RootFolder)
         {
+            if (PrintFolders.Contains(_curDir.FullName))
+            {
+                PrintFolders.Remove(_curDir.FullName);
+            }
             _curDir = _curDir.Parent;
             CurrentSurroundings();
             return;
@@ -15,13 +19,13 @@ public partial class FileManager
     private void OpenFolder()
     {
         var name = GetName(_curDir.GetDirectories() as FileSystemInfo[]);
-        if (name != "Cancel")
-        {
-            _curDir = new DirectoryInfo($"{_curDir.FullName}/{name}");
-            CurrentSurroundings();
-        }
+        if (name == "Cancel") return;
+        
+        _curDir = new DirectoryInfo($"{_curDir.FullName}/{name}");
+        PrintFolders.Add(_curDir.FullName);
+        CurrentSurroundings();
     }
-    
+
     private async void OpenTxt()
     {
         var files = _curDir.GetFiles("*.txt");
@@ -36,19 +40,22 @@ public partial class FileManager
         {
             return;
         }
-
+        
         using var sr = new StreamReader($"{_curDir.FullName}/{name}");
         if (sr.BaseStream.Length > 1000)
         {
             Console.WriteLine("This file is too big");
             return;
         }
+
         var info = await sr.ReadToEndAsync();
-        Console.WriteLine($"Information from the file {name}" +
-                          $"{Environment.NewLine}------------------------------{Environment.NewLine}" +
-                          $"{info}{Environment.NewLine}------------------------------");
+        
+        //await using var sw = new StreamWriter($"{_curDir.FullName}/InfoFrom{name}");
+        Console.WriteLine($"Information from the file {name}"
+                + $"{Environment.NewLine}------------------------------{Environment.NewLine}"
+                + $"{info}{Environment.NewLine}------------------------------");
     }
-    
+
     private string GetName(FileSystemInfo[] folder)
     {
         Console.WriteLine("Choose file/folder from the list below");

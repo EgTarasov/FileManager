@@ -1,21 +1,22 @@
 
 public partial class FileManager
 {
-    private void DrwaTree(DirectoryInfo dir, string line)
+    private void DrawTree(DirectoryInfo dir, string line, StreamWriter sw)
     {
-        Console.Write($"{dir.Name}{Environment.NewLine}{line}");
-        
+        var text = $"{dir.Name}{Environment.NewLine}{line}";
+        Console.Write(text);
+        sw.Write($"{dir.Name}{Environment.NewLine}{line}");
         if (PrintFolders.Contains(dir.FullName) is false) return;
         
         foreach (var data in dir.GetDirectories())
         {
-            DrwaTree(data, line + line);
+            DrawTree(data, line + Line0, sw);
         }
     }
     
     private void CurrentSurroundings()
     {
-        Console.WriteLine($"You are in {_curDir.Name}");
+        Console.WriteLine($"You are in {_curDir.FullName}");
         PrintFileOrDir<DirectoryInfo>(_curDir.GetDirectories());
         PrintFileOrDir<FileInfo>(_curDir.GetFiles());
     }

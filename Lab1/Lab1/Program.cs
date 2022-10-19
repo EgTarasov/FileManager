@@ -42,10 +42,16 @@ public partial class FileManager
                     DeleteFolder();
                     break;
                 case "7":
-                    DrwaTree(new DirectoryInfo(@"C:\"), "|___");
+                {
+                    using var sw = new StreamWriter($"{_curDir.FullName}\\trace.txt");
+                    DrawTree(new DirectoryInfo(@"C:\"), Line0, sw);
                     break;
+                }
                 case "8":
                     return;
+                default:
+                    Console.WriteLine("You must enter number from 0 to 9(excluded)");
+                break;
             }
         }
 

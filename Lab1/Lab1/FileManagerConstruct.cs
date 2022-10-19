@@ -27,5 +27,7 @@ public partial class FileManager
     private static readonly List<string> PrintFolders;
     
     private const string RootFolder = "1 module 2022";
-    
+
+    private const string Line0 = "|___";
+
 }
